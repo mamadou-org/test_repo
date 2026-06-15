@@ -1,0 +1,15 @@
+name: Long Running CI
+on:
+  workflow_dispatch:
+
+jobs:
+  forever:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run forever
+        run: |
+          while true; do
+            echo "Still running... $(date)"
+            sleep 60
+          done
